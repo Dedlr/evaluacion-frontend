@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
-
+import './prueba03.css'
 
 class Blog extends Component {
   constructor(props) {
@@ -26,9 +26,24 @@ class Blog extends Component {
   render() {
     return (
       <div>
-        {this.state.articles.map(article => {
-          return <p>{article.title}</p>;
-        })}
+        <table>
+          <thead>
+            <tr>
+              <th style={{ width: '5%' }}>Id</th>
+              <th style={{ width: '25%' }}>Titulo</th>
+              <th style={{ width: '33%' }}>Descripcion</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.state.articles.map(article => (
+              <tr key={article.id}>
+                <td>{article.id}</td>
+                <td>{article.title}</td>
+                <td>{article.body}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     );
   }

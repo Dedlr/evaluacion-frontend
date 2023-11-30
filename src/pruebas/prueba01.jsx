@@ -17,11 +17,18 @@ class Contador extends Component {
     });
   };
 
+  reiniciar = () => {
+    this.setState({
+      contador: this.state.contador = 0
+    });
+  };
+
   render() {
     return (
       <div>
         <p>{this.state.contador}</p>
-        <button onClick={this.aumentar}>Aumentar</button>
+        <button onClick={this.aumentar}>Aumentar</button><br></br><br></br>
+        <button onClick={this.reiniciar}>Iniciar</button>
       </div>
     );
   }

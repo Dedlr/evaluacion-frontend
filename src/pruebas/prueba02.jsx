@@ -12,17 +12,11 @@ class Formulario extends Component {
     };
   }
 
-  syncEmailChanges(email) {
+  syncChanges = (field, value) => {
     this.setState({
-      email: email
+      [field]: value
     });
-  }
-
-  syncPasswordChanges(password) {
-    this.setState({
-      password: password
-    });
-  }
+  };
 
   submitForm = () => {
     console.log(this.state);
@@ -33,7 +27,7 @@ class Formulario extends Component {
       <form>
         <input
           onChange={ev => {
-            this.syncEmailChanges(ev.target.value);
+            this.syncChanges("email", ev.target.value);
           }}
           type="email"
           value={this.state.email}
@@ -41,7 +35,7 @@ class Formulario extends Component {
         />
         <input
           onChange={ev => {
-            this.syncPasswordChanges(ev.target.value);
+            this.syncChanges("password", ev.target.value);
           }}
           type="password"
           value={this.state.password}
